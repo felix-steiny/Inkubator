@@ -1,0 +1,5 @@
+<%= form_tag("submit_box/new", method: "put") do %>
+    <%= label_tag(:new_idea, "Got an idea:") %>
+    <%= text_field_tag(:new_idea) %>
+    <%= submit_tag("THINK") %>
+<% end %>

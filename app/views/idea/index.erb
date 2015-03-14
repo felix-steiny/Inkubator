@@ -1,0 +1,10 @@
+<h1>Ideas</h1>
+
+<% @ideas.each do |idea| %>
+
+    <div class="idea">
+        <span class="identifier"><%= idea.id %></span>
+        <span class="synopsis"><%=idea.plaintext %></span>
+    </div>
+
+<% end %>
