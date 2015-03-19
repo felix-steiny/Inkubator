@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'submit_box/index'
-  put 'submit_box/new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get 'submit_box/index'
+  put 'submit_box/new'
+
+  get 'idea' => 'idea#fetch'
+  get 'idea/:id' => 'idea#fetch_one'
+
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   root 'idea#index'
 
   # Example of regular route:

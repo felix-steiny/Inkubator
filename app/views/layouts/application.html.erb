@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<div ng-app="ink" ng-controller="ktrl">
+    <div ng-repeat="idea in ideas">
+      <div class="idea">
+        <span>{{ idea.id }}</span>
+        <span>{{ idea.plaintext }}</span>
+      </div>
+    </div>
+</div>
+
 <%= render :template =>  'submit_box/index' %>
 
 <%= yield %>
