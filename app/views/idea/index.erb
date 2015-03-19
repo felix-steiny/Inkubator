@@ -1,11 +1,11 @@
 <h1>Ideas</h1>
 <h3>Probably not very good ones...</h3>
 
-<% @ideas.each do |idea| %>
-
+<div ng-app="ink" ng-controller="ktrl">
+  <div ng-repeat="idea in ideas">
     <div class="idea">
-        <span class="identifier"><%= idea.id %></span>
-        <span class="synopsis"><%=idea.plaintext %></span>
+      <span>{{ idea.id }}</span>
+      <span>{{ idea.plaintext }}</span>
     </div>
-
-<% end %>
+  </div>
+</div>
