@@ -8,9 +8,13 @@
 </head>
 <body>
 
-<%= render :template =>  'submit_box/index' %>
+    <div ng-app="ink" ng-controller="ktrl">
 
-<%= yield %>
+        <%= render :template =>  'idea/submit_box' %>
+
+        <%= yield %>
+
+    </div>
 
 </body>
 </html>
