@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'idea' => 'idea#fetch'
   get 'idea/:id' => 'idea#fetch_one'
   post 'idea' => 'idea#create'
+  post 'idea/save' => 'idea#save_batch'
 
   # You can have the root of your site routed with "root"
   root 'idea#index'

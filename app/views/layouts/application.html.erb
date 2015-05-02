@@ -5,10 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="assets/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript">
+      tinymce.init({
+          selector: "textarea"
+      });
+  </script>
 </head>
-<body>
+<body class="ink-body">
 
-    <div ng-app="ink" ng-controller="ktrl">
+    <div ng-app="ink" ng-controller="main_controller">
 
         <%= render :template =>  'idea/submit_box' %>
 

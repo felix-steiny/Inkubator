@@ -1,3 +1,13 @@
 // Place all the styles related to the idea controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_box {
+
+  height: 80%;
+
+  textarea {
+    width: 80%;
+    height: 80%;
+  }
+}
