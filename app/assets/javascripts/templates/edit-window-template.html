@@ -1,0 +1,23 @@
+<form>
+    <div ng-show="is_edit_mode" class="edit_box" ng-click="is_edit_mode = mouse_over_editor">
+        <div class="mce_wrapper"
+             ng-mouseover="mouse_over_editor = true"
+             ng-mouseleave="mouse_over_editor = false">
+            <textarea id="editor"></textarea>
+
+            <ink-label-group labels="current_idea.labels"></ink-label-group>
+
+            <div class="add_label_area">
+                <label for="class_select">Label Class:</label>
+                <select id="class_select" ng-model="new_label_class_id"
+                        ng-options="c.id as c.name for c in label_class_list" />
+                <br/>
+                <label>Label Value:</label>
+                <input type="text" ng-model="new_label_value" />
+                <br/>
+                <button ng-click="submit_idea_label()">Label It!</button>
+            </div>
+
+        </div>
+    </div>
+</form>

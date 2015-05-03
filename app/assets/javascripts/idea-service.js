@@ -1,6 +1,6 @@
 (function(){
-    var idea_service = function($http) {
-        return {
+    var idea_service = function($http, label_service) {
+        var service = {
             get_all: get_all,
             save_batch: save_batch,
             submit_idea: submit_idea
@@ -11,8 +11,10 @@
                 .then(function(data) {
                     var idea_dict = {};
                     angular.forEach(data.data, function(idea) {
+                        label_service.hydrate_labels(idea);
                         idea_dict[idea.id] = idea;
                     });
+
                     return idea_dict;
             });
         }
@@ -28,9 +30,11 @@
         function submit_idea(new_text) {
             return $http.post("/idea", {new_idea: new_text});
         }
+
+        return service;
     };
 
     /** injection **/
-    idea_service.$inject = ['$http'];
+    idea_service.$inject = ['$http', 'label_service'];
     window.ink.factory('idea_service', idea_service);
 }());

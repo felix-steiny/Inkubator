@@ -1,17 +1,10 @@
 <h1>Ideas</h1>
 <h3>Probably not very good ones...</h3>
 
-<div>
-  <div class="idea" ng-repeat="idea in ideas" ng-click="open_idea(idea.id)">
-      <span>{{ idea.id }}</span>
-      <span>{{ idea.plaintext }}</span>
-  </div>
-</div>
-<form>
-<div ng-show="is_edit_mode || true" class="edit_box">
-    <textarea id="editor"></textarea>
-    <div ng-click="is_edit_mode = false">X</div>
-</div>
-</form>
+<div ng-hide="labels_ready && ideas_ready" >Loading...</div>
+
+<ink-idea-list></ink-idea-list>
+
+<ink-edit-window></ink-edit-window>
 
 <button ng-show="dirty" ng-click="save_all()">Save It All!</button>

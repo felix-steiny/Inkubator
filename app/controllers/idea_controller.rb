@@ -4,7 +4,15 @@ class IdeaController < ApplicationController
   end
 
   def fetch
-    render json: Idea.all
+    data = Idea.all.map { |idea| {'id' => idea.id,
+                                  'html' => idea.html,
+                                  'plaintext' => idea.plaintext,
+                                  'labels' => idea.labels.map { |label|
+                                                                {'value' => label.value,
+                                                                 'label_class_id' => label.label_class_id}}
+                                }
+                        }
+    render json: data
   end
 
   def fetch_one

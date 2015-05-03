@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+lc = LabelClass.create(name: 'Status', color: 'f6f6f6')
+s = Semantic.create(name: 'FixedSelection')
+ClassSemantic.create(semantic: s, label_class: lc, options: 'Unrefined|Refined|Queued|In Progress|Completed|Deployed')
+Label.create(value: 'Unrefined', idea: Idea.first, label_class: lc)

@@ -1,0 +1,9 @@
+<div class="idea" ng-repeat="idea in ideas" ng-click="open_idea(idea.id)" >
+    <ul>
+        <li>
+            <span style="display:none;">{{idea.id}}</span>
+            {{ idea.plaintext }}
+            <ink-label-group labels="idea.labels"></ink-label-group>
+        </li>
+    </ul>
+</div>

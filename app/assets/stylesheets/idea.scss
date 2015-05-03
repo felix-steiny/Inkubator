@@ -2,12 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.labels_group {
+  .label {
+    color: black;
+  }
+
+  background-color: white;
+}
+
 .edit_box {
 
-  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(66,66,66,0.5);
 
-  textarea {
+  height: 100%;
+  width: 100%;
+
+  .mce_wrapper {
     width: 80%;
-    height: 80%;
+    height: 75%;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+
+    .add_label_area {
+      background-color: white;
+    }
+
   }
+
 }
