@@ -1,5 +1,5 @@
 (function() {
-    var main_controller = function($scope, idea_service, label_service, editor){
+    var mainController = function($scope, idea_service, label_service, editor, semantic_service){
 
         $scope.ideas = {};
         $scope.dirty_ideas = {};
@@ -14,6 +14,7 @@
         label_service.initialize().then(function(class_list) {
             $scope.labels_ready = true;
             $scope.label_class_list = class_list;
+            $scope.label_class_list.push({id: 7, name: 'FAKE'});
             $scope.new_label_class_id = class_list[0].id;
         });
 
@@ -27,7 +28,7 @@
 
         $scope.submit_idea_label = function() {
             var label_class_id = $scope.new_label_class_id;
-            var label_value = $scope.new_label_value;
+            var label_value = semantic_service.get_label_editor_value();
             console.log([label_class_id, label_value]);
         };
 
@@ -61,9 +62,11 @@
             $scope.dirty_ideas[cur.id] = cur;
             $scope.dirty = true;
         });
+
+        $scope.render_new_label = semantic_service.render_new_label;
     };
 
     /** Injection **/
-    main_controller.$inject = ['$scope', 'idea_service', 'label_service', 'editor'];
-    window.ink = angular.module('ink', []).controller('main_controller', main_controller);
+    mainController.$inject = ['$scope', 'idea_service', 'label_service', 'editor', 'semantic_service'];
+    angular.module('ink').controller('mainController', mainController);
 }());

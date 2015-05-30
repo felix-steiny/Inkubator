@@ -7,15 +7,7 @@
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="assets/tinymce/tinymce.min.js"></script>
 </head>
-<body class="ink-body">
-
-    <div ng-app="ink" ng-controller="main_controller">
-
-        <%= render :template =>  'idea/submit_box' %>
-
-        <%= yield %>
-
-    </div>
-
+<body class="container-fluid" ng-app="ink">
+    <main></main>
 </body>
 </html>

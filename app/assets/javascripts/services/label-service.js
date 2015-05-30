@@ -2,7 +2,8 @@
     var label_service = function ($http) {
         var service = {
             initialize: initialize,
-            hydrate_labels: safe_hydrate_labels
+            hydrate_labels: safe_hydrate_labels,
+            get_label_class: get_label_class
         };
 
         /** PRIVATE **/
@@ -45,6 +46,10 @@
             }
 
             hydrate_labels(idea);
+        }
+
+        function get_label_class(label_class_id) {
+            return label_classes[label_class_id];
         }
 
         return service;

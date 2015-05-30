@@ -12,8 +12,7 @@
                 <select id="class_select" ng-model="new_label_class_id"
                         ng-options="c.id as c.name for c in label_class_list" />
                 <br/>
-                <label>Label Value:</label>
-                <input type="text" ng-model="new_label_value" />
+                <div id="new-label-value-div" ng-bind-html="render_new_label(new_label_class_id)"></div>
                 <br/>
                 <button ng-click="submit_idea_label()">Label It!</button>
             </div>

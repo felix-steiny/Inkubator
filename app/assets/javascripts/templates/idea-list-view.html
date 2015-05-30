@@ -1,3 +1,8 @@
+<h1>Ideas</h1>
+<h3>Probably not very good ones...</h3>
+
+<div ng-hide="labels_ready && ideas_ready" >Loading...</div>
+
 <div class="idea" ng-repeat="idea in ideas" ng-click="open_idea(idea.id)" >
     <ul>
         <li>
@@ -7,3 +12,7 @@
         </li>
     </ul>
 </div>
+
+<ink-edit-window></ink-edit-window>
+
+<button ng-show="dirty" ng-click="save_all()">Save It All!</button>

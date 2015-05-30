@@ -1,0 +1,1 @@
+window.ink = angular.module('ink', ['ui.bootstrap']);
