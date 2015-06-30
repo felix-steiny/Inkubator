@@ -9,4 +9,5 @@
 lc = LabelClass.create(name: 'Status', color: 'f6f6f6')
 s = Semantic.create(name: 'fixed_selection')
 ClassSemantic.create(semantic: s, label_class: lc, options: 'Unrefined|Refined|Queued|In Progress|Completed|Deployed')
-Label.create(value: 'Unrefined', idea: Idea.first, label_class: lc)
+i = Idea.create(html: "<p>This is a great idea!</p>", plaintext: "wordssss")
+Label.create(value: 'Unrefined', idea: Idea.first, label_class: lc, idea: i)

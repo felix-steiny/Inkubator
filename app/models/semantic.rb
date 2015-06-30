@@ -1,3 +1,3 @@
 class Semantic < ActiveRecord::Base
-  has_many :class_semantic
+  has_many :class_semantics
 end
