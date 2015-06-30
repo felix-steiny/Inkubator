@@ -74,6 +74,8 @@
         });
 
         $scope.render_new_label = semantic_service.render_new_label;
+
+        $scope.$on("newIdeaAdded", $scope.refresh);
     };
 
     /** Injection **/
