@@ -1,9 +1,7 @@
 <form>
-    <div ng-show="is_edit_mode" class="edit_box" ng-click="is_edit_mode = mouse_over_editor">
-        <div class="mce_wrapper"
-             ng-mouseover="mouse_over_editor = true"
-             ng-mouseleave="mouse_over_editor = false">
-            <textarea id="editor"></textarea>
+    <div class="edit_box">
+        <div class="mce_wrapper">
+            <textarea id="idea-text-editor"></textarea>
 
             <ink-label-group labels="current_idea.labels"></ink-label-group>
 

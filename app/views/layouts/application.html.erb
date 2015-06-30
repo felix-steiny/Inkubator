@@ -6,6 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="assets/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript">
+      tinymce.init({
+          mode: 'none'
+      });
+  </script>
 </head>
 <body class="container-fluid" ng-app="ink">
     <main></main>

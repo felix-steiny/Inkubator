@@ -1,5 +1,5 @@
 (function() {
-    var mainController = function($scope, idea_service, label_service, editor, semantic_service){
+    var mainController = function($scope, $modal, idea_service, label_service, ideaEditorService, semantic_service){
 
         $scope.ideas = {};
         $scope.dirty_ideas = {};
@@ -35,7 +35,17 @@
         $scope.open_idea = function(idea_id) {
             $scope.current_idea = $scope.ideas[idea_id];
             $scope.is_edit_mode = true;
-            editor.set($scope.current_idea.html);
+
+            var modalInstance = $modal.open({
+                templateUrl: '/assets/templates/idea-editor.html',
+                controller: 'ideaEditorController',
+                size: 'lg'
+            });
+            modalInstance.rendered.then(function() {
+                ideaEditorService.createAndRender($scope.current_idea.html);
+            });
+
+
         };
 
         $scope.save_all = function() {
@@ -55,10 +65,10 @@
         };
         $scope.refresh();
 
-        editor.set_change_function(function(new_html) {
+        ideaEditorService.set_change_function(function(new_html) {
             var cur = $scope.current_idea;
             cur.html = new_html;
-            cur.plaintext = editor.clean_html(new_html);
+            cur.plaintext = ideaEditorService.clean_html(new_html);
             $scope.dirty_ideas[cur.id] = cur;
             $scope.dirty = true;
         });
@@ -67,6 +77,6 @@
     };
 
     /** Injection **/
-    mainController.$inject = ['$scope', 'idea_service', 'label_service', 'editor', 'semantic_service'];
+    mainController.$inject = ['$scope', '$modal', 'idea_service', 'label_service', 'ideaEditorService', 'semantic_service'];
     angular.module('ink').controller('mainController', mainController);
 }());
